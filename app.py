@@ -10,8 +10,8 @@ def index():
     try:
         data = flask.request.json
         address = data['address']
-        process = subprocess.run(['panoramix', address], shell=True,)
-        print(process)
+        process = subprocess.run(['panoramix', address], shell=True, capture_output=True)
+        print(process.stdout)
         return address
     except Exception as e:
         return flask.Response(status=400)
