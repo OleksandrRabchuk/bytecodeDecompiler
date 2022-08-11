@@ -11,7 +11,7 @@ def index():
         data = flask.request.json
         address = data['address']
         process = subprocess.run(['panoramix', address], shell=True, capture_output=True)
-        print(process.stdout)
+        print(json.dumps(process.stdout))
         return address
     except Exception as e:
         return flask.Response(status=400)
