@@ -4,6 +4,9 @@ import subprocess
 import json
 app = flask.Flask(__name__)
 
+@app.route("/", methods=["Get"])
+def index():
+    return "Hi"
 @app.route("/", methods=["POST"])
 def index():
     try:
@@ -15,6 +18,3 @@ def index():
     except Exception as e:
         return flask.Response(status=400)
 
-@app.route("/", methods=["Get"])
-def index():
-    return "Hi"
