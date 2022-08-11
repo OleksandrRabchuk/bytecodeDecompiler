@@ -10,7 +10,7 @@ def index():
     try:
         data = flask.request.json
         address = data['address']
-        process = subprocess.run(['panoramix', address], capture_output=True)
+        process = subprocess.Popen(['panoramix', address], stdout=subprocess.PIPE)
         print('works')
         print(process)
         return address
