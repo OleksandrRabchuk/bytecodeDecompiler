@@ -10,7 +10,7 @@ def index():
     try:
         data = flask.request.json
         address = data['address']
-        command = f"panoramix {address}"
+        command = f"WEB3_PROVIDER_URI=https://eth-mainnet.g.alchemy.com/v2/gOSHH4ng6NXaQA7zPRT1pBAQ5srcXtt0 panoramix {address}"
         process = subprocess.check_output(command.split()).decode('ascii').split('\n')
         print(process)
         return address
