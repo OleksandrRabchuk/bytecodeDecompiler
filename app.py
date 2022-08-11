@@ -4,9 +4,7 @@ import subprocess
 import json
 app = flask.Flask(__name__)
 
-@app.route("/", methods=["Get"])
-def index():
-    return "Hi"
+
 @app.route("/", methods=["POST"])
 def index():
     try:
