@@ -10,10 +10,12 @@ def index():
     try:
         data = flask.request.json
         address = data['address']
-        process = subprocess.Popen(['panoramix', address], stdout=subprocess.PIPE)
-        print('works')
+        command = f"panoramix {address}"
+        process = subprocess.check_output(command.split()).decode('ascii').split('\n')
         print(process)
         return address
     except Exception as e:
         return flask.Response(status=400)
 
+
+memory_free_info =
