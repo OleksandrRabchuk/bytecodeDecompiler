@@ -18,4 +18,3 @@ def index():
         return flask.Response(status=400)
 
 
-memory_free_info =
