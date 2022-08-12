@@ -13,10 +13,8 @@ def index():
         os.environ["WEB3_PROVIDER_URI"] = "https://eth-mainnet.g.alchemy.com/v2/gOSHH4ng6NXaQA7zPRT1pBAQ5srcXtt0"
         data = flask.request.json
         address = data['address']
-        for item, value in os.environ.items():
-            print('{}: {}'.format(item, value))
         command = f"panoramix {address}"
-        process = subprocess.check_output(command.split()).decode('ascii').split('\n')
+        process = subprocess.check_output(command.split())
         print(process)
         return address
     except Exception as e:
